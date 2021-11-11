@@ -1,0 +1,26 @@
+def balanced_num(number):
+    ### Convertir number en una lista (number2)
+    numberlist = str(number) 
+    number3 =[]
+    ### Bucle para recorrer los elementos de la lista
+    for i in numberlist:
+        i = int(i)
+        number3.append(i)
+    ### incluir cada elemento en una nueva lista de numeros
+    print (number3)
+    ## Identificamos la lingitud de la lista
+    long = len(number3)
+    if long%2 ==0:
+        lista1 = number3[:int(long/2) - 1]
+        lista2 = number3[int(long/2) + 1:]
+    else:
+        lista1 = number3[:int(long//2)]
+        lista2 = number3[int(long//2) + 1:]
+        print(lista1, lista2)
+    left_sum = sum([int(num) for num in lista1])
+    right_sum = sum([int(num) for num in lista2])
+    print(left_sum, right_sum)
+    if left_sum == right_sum:
+        return 'Balanced'
+    else:
+        return 'Not Balanced'
