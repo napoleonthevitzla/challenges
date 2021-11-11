@@ -1,25 +1,28 @@
 def balanced_num(number):
-    ### Convertir number en una lista (number2)
-    numberlist = str(number) 
-    number3 =[]
+    ### Convertir input number en una lista 
+    number_list = str(number) 
+    ## Esta variable almacena los número enteros de number_list
+    number_list_int =[]
     ### Bucle para recorrer los elementos de la lista
-    for i in numberlist:
+    for i in number_list:
         i = int(i)
-        number3.append(i)
-    ### incluir cada elemento en una nueva lista de numeros
-    print (number3)
-    ## Identificamos la lingitud de la lista
-    long = len(number3)
-    if long%2 ==0:
-        lista1 = number3[:int(long/2) - 1]
-        lista2 = number3[int(long/2) + 1:]
-    else:
-        lista1 = number3[:int(long//2)]
-        lista2 = number3[int(long//2) + 1:]
-        print(lista1, lista2)
-    left_sum = sum([int(num) for num in lista1])
-    right_sum = sum([int(num) for num in lista2])
+        number_list_int.append(i)
+    ### Incluimos cada elemento en una nueva lista de numeros enteros
+    print (number_list_int)
+    ## Identificamos la longitud de la lista
+    long = len(number_list_int)
+    if long%2 ==0: ## En el caso de que sea par, aislamos los dos valores del medio
+        left_list = number_list_int[:int(long/2) - 1]
+        lista2 = number_list_int[int(long/2) + 1:]
+    else: ## En el caso de número de elemento impar asilamos el valor del medio.
+        left_list = number_list_int[:int(long//2)]
+        right_list = number_list_int[int(long//2) + 1:]
+        print(left_list, right_list)
+    ## Identificados los valores, procedemos a su suma y almacenamos el resultado en estas dos variables
+    left_sum = sum([int(num) for num in left_list])
+    right_sum = sum([int(num) for num in right_list])
     print(left_sum, right_sum)
+    ## Condicional que devuelve el resultado si la suma de los valores de ambas listas es igual o diferente  
     if left_sum == right_sum:
         return 'Balanced'
     else:
